@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activar Pulsera - Ofelia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <img src="images/logo.png" alt="Ofelia" class="logo-auth" />
+        <h2>Activar Pulsera</h2>
+        <p>Complete los datos para configurar esta pulsera de seguridad.</p>
+
+        <form id="registerForm">
+          <!-- Step 1: Basic Info -->
+          <div id="step1">
+            <div class="form-group">
+              <label>Foto de Perfil</label>
+              <label class="file-upload">
+                <input type="file" id="photo" accept="image/*" required />
+                <span class="upload-text">
+                  <div class="upload-icon">📷</div>
+                  Toca para subir foto
+                </span>
+                <img
+                  id="photoPreview"
+                  src=""
+                  alt="Vista previa"
+                  style="
+                    display: none;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 10px;
+                  "
+                />
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label for="firstName">Nombre</label>
+              <input type="text" id="firstName" required placeholder="Nombre" />
+            </div>
+
+            <div class="form-group">
+              <label for="lastName">Apellido</label>
+              <input
+                type="text"
+                id="lastName"
+                required
+                placeholder="Apellido"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Teléfono de Contacto Principal</label>
+              <input
+                type="tel"
+                id="phone"
+                required
+                placeholder="Ej: +54 9 11 1234-5678"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="contactName1">Nombre del Contacto Principal</label>
+              <input
+                type="text"
+                id="contactName1"
+                required
+                placeholder="Ej: Mamá, Papá, Juan"
+              />
+            </div>
+
+            <button type="button" id="nextBtn" class="btn btn-primary">
+              Siguiente
+            </button>
+          </div>
+
+          <!-- Step 2: Extra Contacts & Info -->
+          <div id="step2" style="display: none">
+            <div class="form-group">
+              <label for="contactName2"
+                >Nombre del Contacto Alternativo (Opcional)</label
+              >
+              <input
+                type="text"
+                id="contactName2"
+                placeholder="Ej: Tío, Vecino"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="phone2">Teléfono Alternativo (Opcional)</label>
+              <input
+                type="tel"
+                id="phone2"
+                placeholder="Ej: +54 9 11 8765-4321"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email de Contacto</label>
+              <input
+                type="email"
+                id="email"
+                required
+                placeholder="Ej: contacto@familia.com"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message"
+                >Información Médica / Mensaje (Opcional)</label
+              >
+              <textarea
+                id="message"
+                rows="3"
+                placeholder="Ej: Tiene Alzheimer, es diabético, llamar urgente."
+              ></textarea>
+            </div>
+
+            <button
+              type="button"
+              id="backBtn"
+              class="btn btn-secondary"
+              style="margin-bottom: 10px"
+            >
+              Atrás
+            </button>
+            <button type="submit" class="btn btn-register">
+              Guardar y Activar
+            </button>
+          </div>
+
+          <a
+            href="index.html"
+            class="btn btn-secondary"
+            style="margin-top: 20px"
+            >Cancelar</a
+          >
+        </form>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

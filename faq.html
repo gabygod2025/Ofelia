@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preguntas Frecuentes - Ofelia</title>
+    <meta
+      name="description"
+      content="Respuestas a las dudas más comunes sobre las pulseras y tags NFC/QR de Ofelia."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="landing.css" />
+    <style>
+      .page-hero {
+        padding-top: calc(140px - var(--header-height));
+        padding-bottom: 60px;
+        background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-dark-2) 100%);
+        color: white;
+        text-align: center;
+      }
+      .faq-section {
+        padding: 60px 0;
+        background: var(--bg-light);
+      }
+      .faq-item {
+        background: var(--bg-card);
+        border-radius: var(--radius-md);
+        padding: 24px;
+        margin-bottom: 20px;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid rgba(0,0,0,0.05);
+      }
+      .faq-question {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 12px;
+      }
+      .faq-answer {
+        color: var(--text-medium);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header" id="header">
+      <div class="container">
+        <div class="header-content">
+          <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Ofelia" class="logo-img" />
+            <img
+              src="images/logo02.png"
+              alt="Ofelia"
+              class="logo-img logo-img-02"
+            />
+          </a>
+
+          <nav class="nav">
+            <ul class="nav-links">
+              <li><a href="index.html#inicio" class="nav-link">Inicio</a></li>
+              <li><a href="index.html#como-funciona" class="nav-link">Cómo Funciona</a></li>
+              <li><a href="index.html#productos" class="nav-link">Productos</a></li>
+              <li><a href="faq.html" class="nav-link">Preguntas Frecuentes</a></li>
+              <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+
+            <div class="nav-actions">
+              <a href="login.html" class="btn btn-outline">Iniciar Sesión</a>
+            </div>
+          </nav>
+
+          <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            <div class="hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-nav" id="mobileNav">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html#inicio">Inicio</a></li>
+        <li><a href="index.html#como-funciona">Cómo Funciona</a></li>
+        <li><a href="index.html#productos">Productos</a></li>
+        <li><a href="faq.html">Preguntas Frecuentes</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="login.html">Iniciar Sesión</a></li>
+      </ul>
+    </div>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="section-title" style="color: white;">Preguntas Frecuentes</h1>
+        <p class="section-subtitle">Resolvemos tus dudas sobre Ofelia</p>
+      </div>
+    </section>
+
+    <!-- FAQ CONTENT -->
+    <section class="faq-section">
+      <div class="container" style="max-width: 800px;">
+        <div class="faq-item">
+          <h3 class="faq-question">¿Tiene algún costo mensual?</h3>
+          <p class="faq-answer">No. El servicio de Ofelia es 100% gratuito. Solo pagas una única vez por el producto (pulsera, tag, etc.). No hay suscripciones ni cargos ocultos.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-question">¿Necesitan batería o carga?</h3>
+          <p class="faq-answer">No. Nuestros productos utilizan tecnología NFC pasiva y códigos QR, por lo que no requieren baterías ni necesitan ser recargados nunca. Siempre estarán listos para usar.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-question">¿Es resistente al agua?</h3>
+          <p class="faq-answer">Sí, la mayoría de nuestros productos como pulseras y tags son resistentes al agua y duraderos, diseñados para el uso diario.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-question">¿Cómo funciona si encuentro a alguien?</h3>
+          <p class="faq-answer">Simplemente acerca tu celular al dispositivo (NFC) o escanea el código QR con la cámara. Se abrirá una página con la información de contacto de emergencia y podrás llamar o enviar un mensaje al instante.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-question">¿Puedo actualizar mis datos?</h3>
+          <p class="faq-answer">Sí, puedes iniciar sesión en tu cuenta en cualquier momento y actualizar los teléfonos de contacto, información médica o cualquier otro dato sin necesidad de cambiar el producto.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <img src="images/logo.png" alt="Ofelia" class="logo-img" />
+              <img
+                src="images/logo02.png"
+                alt="Ofelia"
+                class="logo-img logo-img-02"
+              />
+            </div>
+            <p class="footer-description">
+              Protegiendo a quienes más amas con tecnología simple y efectiva.
+            </p>
+          </div>
+          <div class="footer-column">
+            <h4>Empresa</h4>
+            <ul class="footer-links">
+              <li><a href="index.html#inicio">Inicio</a></li>
+              <li><a href="index.html#como-funciona">Cómo Funciona</a></li>
+              <li><a href="index.html#productos">Productos</a></li>
+              <li><a href="faq.html">Preguntas Frecuentes</a></li>
+              <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Soporte</h4>
+            <ul class="footer-links">
+              <li><a href="contacto.html">Contacto</a></li>
+              <li><a href="#">Privacidad</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Ofelia. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function toggleMobileMenu() {
+        const mobileNav = document.getElementById('mobileNav');
+        mobileNav.classList.toggle('active');
+      }
+    </script>
+  </body>
+</html>

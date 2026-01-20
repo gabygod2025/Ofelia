@@ -1,0 +1,879 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <title>
+      Ofelia - Pulseras NFC/QR para Personas con Alzheimer, Mascotas y Objetos
+    </title>
+    <meta
+      name="description"
+      content="Sistema de identificación gratuito con pulseras NFC/QR para encontrar personas con Alzheimer, mascotas perdidas y objetos. Servicio gratis, solo pagas el producto."
+    />
+    <meta
+      name="keywords"
+      content="pulsera alzheimer, identificación personas, QR mascotas, NFC, encontrar personas perdidas, seguridad adultos mayores, tags mascotas"
+    />
+    <meta name="author" content="Ofelia" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ofelia.com/" />
+    <meta property="og:title" content="Ofelia - Protege a quienes más amas" />
+    <meta
+      property="og:description"
+      content="Pulseras NFC/QR para encontrar personas con Alzheimer, mascotas y objetos. Servicio 100% gratuito."
+    />
+    <meta property="og:image" content="https://ofelia.com/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://ofelia.com/" />
+    <meta
+      property="twitter:title"
+      content="Ofelia - Protege a quienes más amas"
+    />
+    <meta
+      property="twitter:description"
+      content="Pulseras NFC/QR para encontrar personas con Alzheimer, mascotas y objetos. Servicio 100% gratuito."
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="landing.css" />
+
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Ofelia",
+        "description": "Sistema de identificación mediante pulseras NFC/QR",
+        "url": "https://ofelia.com",
+        "logo": "https://ofelia.com/logo.png",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "Customer Service",
+          "availableLanguage": "Spanish"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header" id="header">
+      <div class="container">
+        <div class="header-content">
+          <a href="#" class="logo">
+            <img src="images/logo.png" alt="Ofelia" class="logo-img" />
+            <img
+              src="images/logo02.png"
+              alt="Ofelia"
+              class="logo-img logo-img-02"
+            />
+          </a>
+
+          <nav class="nav">
+            <ul class="nav-links">
+              <li><a href="#inicio" class="nav-link">Inicio</a></li>
+              <li>
+                <a href="#como-funciona" class="nav-link">Cómo Funciona</a>
+              </li>
+              <li><a href="#productos" class="nav-link">Productos</a></li>
+              <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
+            </ul>
+
+            <div class="nav-actions">
+              <a href="login.html" class="btn btn-outline">Iniciar Sesión</a>
+              <button
+                class="cart-btn"
+                onclick="toggleCart()"
+                aria-label="Carrito de compras"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+                  />
+                </svg>
+                <span class="cart-count" style="display: none">0</span>
+              </button>
+            </div>
+          </nav>
+
+          <button
+            class="mobile-menu-btn"
+            onclick="toggleMobileMenu()"
+            aria-label="Menú"
+          >
+            <div class="hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-nav" id="mobileNav">
+      <ul class="mobile-nav-links">
+        <li><a href="#inicio" onclick="toggleMobileMenu()">Inicio</a></li>
+        <li>
+          <a href="#como-funciona" onclick="toggleMobileMenu()"
+            >Cómo Funciona</a
+          >
+        </li>
+        <li><a href="#productos" onclick="toggleMobileMenu()">Productos</a></li>
+        <li>
+          <a href="#testimonios" onclick="toggleMobileMenu()">Testimonios</a>
+        </li>
+        <li><a href="login.html">Iniciar Sesión</a></li>
+      </ul>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <div class="hero-badge">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              Servicio 100% Gratuito
+            </div>
+
+            <h1 class="hero-title">
+              Protege a quienes más <span class="gradient-text">amas</span>
+            </h1>
+
+            <p class="hero-description">
+              Sistema de identificación inteligente con pulseras NFC y QR para
+              encontrar personas con Alzheimer, mascotas perdidas y objetos
+              valiosos. Registra, comparte y protege.
+            </p>
+
+            <div class="hero-buttons">
+              <a href="#productos" class="btn btn-primary btn-lg"
+                >Ver Productos</a
+              >
+              <a href="register.html" class="btn btn-secondary btn-lg"
+                >Registrar Gratis</a
+              >
+            </div>
+
+            <div class="hero-stats">
+              <div class="stat-item">
+                <div class="stat-number">10,000+</div>
+                <div class="stat-label">Usuarios activos</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Casos exitosos</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Disponibilidad</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-image-container">
+              <svg viewBox="0 0 500 400" style="width: 100%; height: auto">
+                <defs>
+                  <linearGradient
+                    id="grad1"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
+                    <stop
+                      offset="0%"
+                      style="stop-color: #00b4d8; stop-opacity: 1"
+                    />
+                    <stop
+                      offset="100%"
+                      style="stop-color: #8b5cf6; stop-opacity: 1"
+                    />
+                  </linearGradient>
+                </defs>
+                <!-- Person silhouette -->
+                <ellipse
+                  cx="250"
+                  cy="120"
+                  rx="60"
+                  ry="65"
+                  fill="url(#grad1)"
+                  opacity="0.9"
+                />
+                <rect
+                  x="190"
+                  y="185"
+                  width="120"
+                  height="150"
+                  rx="60"
+                  fill="url(#grad1)"
+                  opacity="0.9"
+                />
+                <!-- Bracelet -->
+                <ellipse cx="160" cy="260" rx="25" ry="8" fill="#00b4d8" />
+                <rect x="135" y="255" width="50" height="5" fill="#00b4d8" />
+                <!-- QR Code representation -->
+                <rect
+                  x="380"
+                  y="50"
+                  width="80"
+                  height="80"
+                  fill="#fff"
+                  stroke="#00b4d8"
+                  stroke-width="3"
+                />
+                <rect x="390" y="60" width="15" height="15" fill="#00b4d8" />
+                <rect x="410" y="60" width="15" height="15" fill="#00b4d8" />
+                <rect x="390" y="80" width="15" height="15" fill="#00b4d8" />
+                <rect x="410" y="80" width="15" height="15" fill="#00b4d8" />
+                <rect x="430" y="60" width="20" height="35" fill="#00b4d8" />
+                <rect x="390" y="100" width="35" height="20" fill="#00b4d8" />
+                <rect x="430" y="100" width="20" height="20" fill="#00b4d8" />
+                <!-- Connection lines -->
+                <line
+                  x1="185"
+                  y1="260"
+                  x2="380"
+                  y2="90"
+                  stroke="#00b4d8"
+                  stroke-width="2"
+                  stroke-dasharray="5,5"
+                  opacity="0.5"
+                />
+                <!-- Hearts -->
+                <path
+                  d="M 420 160 C 420 150, 435 150, 435 160 C 435 150, 450 150, 450 160 C 450 175, 435 185, 435 195 C 435 185, 420 175, 420 160"
+                  fill="#ef4444"
+                  opacity="0.8"
+                />
+                <path
+                  d="M 60 100 C 60 92, 72 92, 72 100 C 72 92, 84 92, 84 100 C 84 112, 72 120, 72 128 C 72 120, 60 112, 60 100"
+                  fill="#22c55e"
+                  opacity="0.8"
+                />
+              </svg>
+
+              <div class="floating-card floating-card-1">
+                <div class="floating-icon success">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div class="floating-text">
+                  <strong>Persona Encontrada</strong>
+                  <span>En menos de 20 minutos</span>
+                </div>
+              </div>
+
+              <div class="floating-card floating-card-2">
+                <div class="floating-icon primary">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                    />
+                  </svg>
+                </div>
+                <div class="floating-text">
+                  <strong>98% Satisfacción</strong>
+                  <span>Miles de familias</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="section features">
+      <div class="container">
+        <h2 class="section-title">
+          ¿Por qué elegir <span class="gradient-text">Ofelia</span>?
+        </h2>
+        <p class="section-subtitle">
+          Una solución completa para la seguridad de tus seres queridos,
+          mascotas y pertenencias
+        </p>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="feature-title">Respuesta Inmediata</h3>
+            <p class="feature-description">
+              Notificaciones instantáneas cuando alguien escanea el QR o NFC de
+              tu pulsera. Actúa rápido en situaciones de emergencia.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                />
+              </svg>
+            </div>
+            <h3 class="feature-title">100% Privado y Seguro</h3>
+            <p class="feature-description">
+              Tus datos están protegidos con encriptación de nivel bancario.
+              Solo tú decides qué información compartir.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                />
+              </svg>
+            </div>
+            <h3 class="feature-title">Sin Costo Mensual</h3>
+            <p class="feature-description">
+              El servicio de registro y localización es completamente gratuito.
+              Solo pagas por el producto físico una única vez.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="feature-title">Sin Baterías</h3>
+            <p class="feature-description">
+              Nuestros dispositivos no utilizan batería ni necesitan recarga.
+              Siempre listos para funcionar, sin preocupaciones.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <h3 class="feature-title">Cobertura Global</h3>
+            <p class="feature-description">
+              Funciona en cualquier parte del mundo. Ideal para viajes y
+              vacaciones con tranquilidad total.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                />
+              </svg>
+            </div>
+            <h3 class="feature-title">Múltiples Contactos</h3>
+            <p class="feature-description">
+              Registra varios números de contacto de emergencia. Todos serán
+              notificados simultáneamente.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section section-dark how-it-works" id="como-funciona">
+      <div class="container">
+        <h2 class="section-title" style="color: white">
+          Cómo <span class="gradient-text">Funciona</span>
+        </h2>
+        <p class="section-subtitle">
+          Cuatro simples pasos para proteger a tus seres queridos
+        </p>
+
+        <div class="steps-container">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3 class="step-title">Compra tu Producto</h3>
+            <p class="step-description">
+              Elige la pulsera, tag o prenda que mejor se adapte a tus
+              necesidades.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3 class="step-title">Registra Información</h3>
+            <p class="step-description">
+              Escanea el QR y completa el formulario con los datos de contacto
+              de emergencia.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3 class="step-title">Úsalo Siempre</h3>
+            <p class="step-description">
+              La persona, mascota u objeto lleva el identificador en todo
+              momento.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <h3 class="step-title">Conexión Inmediata</h3>
+            <p class="step-description">
+              Al escanear, se muestra la info de contacto y se notifica a los
+              responsables.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="section products" id="productos">
+      <div class="container">
+        <h2 class="section-title">
+          Nuestros <span class="gradient-text">Productos</span>
+        </h2>
+        <p class="section-subtitle">
+          Soluciones para cada necesidad. Conoce nuestra línea completa.
+        </p>
+
+        <div class="products-grid">
+          <!-- Product 1: Pulsera Alzheimer -->
+          <article class="product-card">
+            <div class="product-image">
+              <img
+                src="images/pulsera-alzheimer.png"
+                alt="Pulsera NFC/QR para personas con Alzheimer"
+              />
+              <span class="product-badge">Más Vendido</span>
+            </div>
+            <div class="product-content">
+              <div class="product-category">Para Personas</div>
+              <h3 class="product-name">Pulsera Alzheimer</h3>
+              <p class="product-description">
+                Pulsera elegante y cómoda con NFC y QR. Ideal para adultos
+                mayores con Alzheimer o demencia.
+              </p>
+            </div>
+          </article>
+
+          <!-- Product 3: Tag Mascotas -->
+          <article class="product-card">
+            <div class="product-image">
+              <img
+                src="images/tag-mascotas.png"
+                alt="Tag QR para mascotas - perros y gatos"
+              />
+              <span class="product-badge">Nuevo</span>
+            </div>
+            <div class="product-content">
+              <div class="product-category">Para Mascotas</div>
+              <h3 class="product-name">Tag Mascotas</h3>
+              <p class="product-description">
+                Identificador tipo llavero para collar de perros y gatos. Metal
+                premium con QR grabado.
+              </p>
+            </div>
+          </article>
+
+          <!-- Product 4: Tag Objetos -->
+          <article class="product-card">
+            <div class="product-image">
+              <img
+                src="images/tag-objetos.png"
+                alt="Tag QR para equipaje y objetos valiosos"
+              />
+            </div>
+            <div class="product-content">
+              <div class="product-category">Para Objetos</div>
+              <h3 class="product-name">Tag Objetos</h3>
+              <p class="product-description">
+                Etiqueta para valijas, mochilas y objetos de valor. Resistente y
+                duradero.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-footer" style="text-align: center; margin-top: 40px;">
+          <a href="productos.html" class="btn btn-primary btn-lg">Ver Catálogo Completo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials" id="testimonios">
+      <div class="container">
+        <h2 class="section-title">
+          Lo que dicen nuestros <span class="gradient-text">usuarios</span>
+        </h2>
+        <p class="section-subtitle">
+          Miles de familias confían en Ofelia para cuidar a sus seres queridos
+        </p>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">
+              Mi madre tiene Alzheimer y se desorientaba constantemente. Gracias
+              a la pulsera Ofelia, ya la encontramos dos veces en menos de media
+              hora. Es un alivio enorme saber que está protegida.
+            </p>
+            <div class="testimonial-author">
+              <svg
+                class="testimonial-avatar"
+                width="56"
+                height="56"
+                viewBox="0 0 100 100"
+              >
+                <circle cx="50" cy="50" r="50" fill="#e0f2fe" />
+                <circle cx="50" cy="35" r="18" fill="#0ea5e9" />
+                <ellipse cx="50" cy="75" rx="30" ry="25" fill="#0ea5e9" />
+              </svg>
+              <div class="testimonial-info">
+                <strong>María González</strong>
+                <span>Buenos Aires, Argentina</span>
+                <div class="testimonial-stars">★★★★★</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">
+              Perdí a mi perro Max en el parque y alguien lo encontró a las 3
+              horas. Escaneó el tag y me llamó inmediatamente. No puedo
+              agradecer lo suficiente a Ofelia por reunirme con mi mejor amigo.
+            </p>
+            <div class="testimonial-author">
+              <svg
+                class="testimonial-avatar"
+                width="56"
+                height="56"
+                viewBox="0 0 100 100"
+              >
+                <circle cx="50" cy="50" r="50" fill="#dcfce7" />
+                <circle cx="50" cy="35" r="18" fill="#22c55e" />
+                <ellipse cx="50" cy="75" rx="30" ry="25" fill="#22c55e" />
+              </svg>
+              <div class="testimonial-info">
+                <strong>Carlos Rodríguez</strong>
+                <span>Córdoba, Argentina</span>
+                <div class="testimonial-stars">★★★★★</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">
+              Viajé a Europa y perdí mi valija en el aeropuerto. El tag de
+              Ofelia permitió que la aerolínea me contactara rápidamente.
+              Recuperé todo sin problemas. ¡Producto imprescindible!
+            </p>
+            <div class="testimonial-author">
+              <svg
+                class="testimonial-avatar"
+                width="56"
+                height="56"
+                viewBox="0 0 100 100"
+              >
+                <circle cx="50" cy="50" r="50" fill="#fef3c7" />
+                <circle cx="50" cy="35" r="18" fill="#f59e0b" />
+                <ellipse cx="50" cy="75" rx="30" ry="25" fill="#f59e0b" />
+              </svg>
+              <div class="testimonial-info">
+                <strong>Laura Martínez</strong>
+                <span>Mendoza, Argentina</span>
+                <div class="testimonial-stars">★★★★★</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FREE SERVICE BANNER -->
+    <section class="free-banner">
+      <div class="container">
+        <div class="free-banner-content">
+          <div class="free-badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            100% Gratuito
+          </div>
+          <h2>Servicio de Localización Sin Costo</h2>
+          <p>
+            El registro y el sistema de notificaciones son completamente
+            gratuitos. Solo pagas por el producto físico (pulsera, tag o
+            prenda). Sin mensualidades, sin sorpresas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <img src="images/logo.png" alt="Ofelia" class="logo-img" />
+              <img
+                src="images/logo02.png"
+                alt="Ofelia"
+                class="logo-img logo-img-02"
+              />
+            </div>
+            <p class="footer-description">
+              Sistema de identificación inteligente para proteger a tus seres
+              queridos, mascotas y pertenencias. Tecnología NFC y QR al servicio
+              de tu tranquilidad.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-link" aria-label="Facebook">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-link" aria-label="Instagram">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-link" aria-label="Twitter">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-link" aria-label="WhatsApp">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h4>Productos</h4>
+            <ul class="footer-links">
+              <li><a href="#productos">Pulseras Personas</a></li>
+              <li><a href="#productos">Tags Mascotas</a></li>
+              <li><a href="#productos">Tags Objetos</a></li>
+              <li><a href="#productos">Indumentaria</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Empresa</h4>
+            <ul class="footer-links">
+              <li><a href="#inicio">Inicio</a></li>
+              <li><a href="#como-funciona">Cómo Funciona</a></li>
+              <li><a href="#testimonios">Testimonios</a></li>
+              <li><a href="faq.html">Preguntas Frecuentes</a></li>
+              <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Soporte</h4>
+            <ul class="footer-links">
+              <li><a href="contacto.html">Contacto</a></li>
+              <li><a href="faq.html">Centro de Ayuda</a></li>
+              <li><a href="#">Términos y Condiciones</a></li>
+              <li><a href="#">Privacidad</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2026 Ofelia. Todos los derechos reservados. Protegiendo a
+            quienes más amas.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- CART MODAL -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-modal" id="cartModal">
+      <div class="cart-header">
+        <h3>Mi Carrito</h3>
+        <button
+          class="cart-close"
+          onclick="toggleCart()"
+          aria-label="Cerrar carrito"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="cart-items" id="cartItems">
+        <div class="cart-empty">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path
+              d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+            />
+          </svg>
+          <p>Tu carrito está vacío</p>
+        </div>
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-subtotal">
+          <span>Subtotal:</span>
+          <span id="cartSubtotal">$0</span>
+        </div>
+        <button
+          class="btn btn-primary cart-checkout"
+          onclick="window.location.href = 'register.html'"
+        >
+          Finalizar Compra
+        </button>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="cart.js"></script>
+  </body>
+</html>

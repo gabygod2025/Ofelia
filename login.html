@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ofelia - Escáner QR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <img src="images/logo.png" alt="Ofelia" class="logo-auth" />
+        <p>Sistema de Identificación y Seguridad</p>
+
+        <div style="margin: 40px 0">
+          <!-- Simulated QR Icon -->
+          <svg
+            width="100"
+            height="100"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="color: var(--primary)"
+          >
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+        </div>
+
+        <div class="form-group">
+          <label for="qrId">Simular Escaneo de QR</label>
+          <input
+            type="text"
+            id="qrId"
+            placeholder="Ingrese ID de pulsera (ej: 1234)"
+            autocomplete="off"
+          />
+        </div>
+
+        <button id="scanBtn" class="btn-scan">Escanear / Simular</button>
+
+        <p style="margin-top: 20px; font-size: 0.9rem">
+          Al escanear un código QR, serás redirigido a la información de
+          contacto o al formulario de registro si es una pulsera nueva.
+        </p>
+
+        <a
+          href="index.html"
+          style="
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+          "
+          >← Volver al Inicio</a
+        >
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

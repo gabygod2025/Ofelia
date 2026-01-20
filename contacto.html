@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto - Ofelia</title>
+    <meta
+      name="description"
+      content="Contáctanos para cualquier duda o consulta sobre Ofelia."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="landing.css" />
+    <style>
+      .page-hero {
+        padding-top: calc(140px - var(--header-height));
+        padding-bottom: 60px;
+        background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-dark-2) 100%);
+        color: white;
+        text-align: center;
+      }
+      .contact-section {
+        padding: 60px 0;
+        background: var(--bg-light);
+      }
+      .contact-form {
+        background: var(--bg-card);
+        padding: 40px;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-md);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .form-group {
+        margin-bottom: 24px;
+      }
+      .form-label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+      .form-input, .form-textarea {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #e2e8f0;
+        border-radius: var(--radius-sm);
+        font-family: inherit;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+      }
+      .form-input:focus, .form-textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+      }
+      .form-textarea {
+        height: 150px;
+        resize: vertical;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header" id="header">
+      <div class="container">
+        <div class="header-content">
+          <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Ofelia" class="logo-img" />
+            <img
+              src="images/logo02.png"
+              alt="Ofelia"
+              class="logo-img logo-img-02"
+            />
+          </a>
+
+          <nav class="nav">
+            <ul class="nav-links">
+              <li><a href="index.html#inicio" class="nav-link">Inicio</a></li>
+              <li><a href="index.html#como-funciona" class="nav-link">Cómo Funciona</a></li>
+              <li><a href="index.html#productos" class="nav-link">Productos</a></li>
+              <li><a href="faq.html" class="nav-link">Preguntas Frecuentes</a></li>
+              <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+
+            <div class="nav-actions">
+              <a href="login.html" class="btn btn-outline">Iniciar Sesión</a>
+            </div>
+          </nav>
+
+          <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            <div class="hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-nav" id="mobileNav">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html#inicio">Inicio</a></li>
+        <li><a href="index.html#como-funciona">Cómo Funciona</a></li>
+        <li><a href="index.html#productos">Productos</a></li>
+        <li><a href="faq.html">Preguntas Frecuentes</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="login.html">Iniciar Sesión</a></li>
+      </ul>
+    </div>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="section-title" style="color: white;">Contacto</h1>
+        <p class="section-subtitle">Estamos aquí para ayudarte</p>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section class="contact-section">
+      <div class="container">
+        <form class="contact-form">
+          <div class="form-group">
+            <label class="form-label" for="name">Nombre Completo</label>
+            <input type="text" id="name" class="form-input" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input type="email" id="email" class="form-input" placeholder="tucorreo@ejemplo.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Mensaje</label>
+            <textarea id="message" class="form-textarea" placeholder="¿En qué podemos ayudarte?" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Enviar Mensaje</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <img src="images/logo.png" alt="Ofelia" class="logo-img" />
+              <img
+                src="images/logo02.png"
+                alt="Ofelia"
+                class="logo-img logo-img-02"
+              />
+            </div>
+            <p class="footer-description">
+              Protegiendo a quienes más amas con tecnología simple y efectiva.
+            </p>
+          </div>
+          <div class="footer-column">
+            <h4>Empresa</h4>
+            <ul class="footer-links">
+              <li><a href="index.html#inicio">Inicio</a></li>
+              <li><a href="index.html#como-funciona">Cómo Funciona</a></li>
+              <li><a href="index.html#productos">Productos</a></li>
+              <li><a href="faq.html">Preguntas Frecuentes</a></li>
+              <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Soporte</h4>
+            <ul class="footer-links">
+              <li><a href="contacto.html">Contacto</a></li>
+              <li><a href="#">Privacidad</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Ofelia. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function toggleMobileMenu() {
+        const mobileNav = document.getElementById('mobileNav');
+        mobileNav.classList.toggle('active');
+      }
+    </script>
+  </body>
+</html>
