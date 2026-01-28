@@ -151,7 +151,7 @@
     <!-- HERO SECTION -->
     <section class="hero" id="inicio">
       <div class="container">
-        <div class="hero-content">
+        <div class="hero-content reveal">
           <div class="hero-text">
             <div class="hero-badge">
               <svg
@@ -173,8 +173,9 @@
 
             <p class="hero-description">
               Sistema de identificación inteligente con pulseras NFC y QR para
-              encontrar personas con Alzheimer, mascotas perdidas y objetos
-              valiosos. Registra, comparte y protege.
+              proteger y ayudar a encontrar niños, personas con Alzheimer, con
+              TEA, mascotas perdidas y objetos valiosos. Registra, comparte y
+              protege.
             </p>
 
             <div class="hero-buttons">
@@ -184,6 +185,46 @@
               <a href="register.html" class="btn btn-secondary btn-lg"
                 >Registrar Gratis</a
               >
+            </div>
+
+            <div
+              class="trust-badges"
+              style="
+                display: flex;
+                gap: 20px;
+                margin-top: 24px;
+                color: var(--text-light);
+                font-size: 0.9rem;
+              "
+            >
+              <div style="display: flex; align-items: center; gap: 8px">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                <span>Datos Seguros</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                  />
+                </svg>
+                <span>100% Privado</span>
+              </div>
             </div>
 
             <div class="hero-stats">
@@ -204,124 +245,19 @@
 
           <div class="hero-visual">
             <div class="hero-image-container">
-              <svg viewBox="0 0 500 400" style="width: 100%; height: auto">
-                <defs>
-                  <linearGradient
-                    id="grad1"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="100%"
-                  >
-                    <stop
-                      offset="0%"
-                      style="stop-color: #00b4d8; stop-opacity: 1"
-                    />
-                    <stop
-                      offset="100%"
-                      style="stop-color: #8b5cf6; stop-opacity: 1"
-                    />
-                  </linearGradient>
-                </defs>
-                <!-- Person silhouette -->
-                <ellipse
-                  cx="250"
-                  cy="120"
-                  rx="60"
-                  ry="65"
-                  fill="url(#grad1)"
-                  opacity="0.9"
-                />
-                <rect
-                  x="190"
-                  y="185"
-                  width="120"
-                  height="150"
-                  rx="60"
-                  fill="url(#grad1)"
-                  opacity="0.9"
-                />
-                <!-- Bracelet -->
-                <ellipse cx="160" cy="260" rx="25" ry="8" fill="#00b4d8" />
-                <rect x="135" y="255" width="50" height="5" fill="#00b4d8" />
-                <!-- QR Code representation -->
-                <rect
-                  x="380"
-                  y="50"
-                  width="80"
-                  height="80"
-                  fill="#fff"
-                  stroke="#00b4d8"
-                  stroke-width="3"
-                />
-                <rect x="390" y="60" width="15" height="15" fill="#00b4d8" />
-                <rect x="410" y="60" width="15" height="15" fill="#00b4d8" />
-                <rect x="390" y="80" width="15" height="15" fill="#00b4d8" />
-                <rect x="410" y="80" width="15" height="15" fill="#00b4d8" />
-                <rect x="430" y="60" width="20" height="35" fill="#00b4d8" />
-                <rect x="390" y="100" width="35" height="20" fill="#00b4d8" />
-                <rect x="430" y="100" width="20" height="20" fill="#00b4d8" />
-                <!-- Connection lines -->
-                <line
-                  x1="185"
-                  y1="260"
-                  x2="380"
-                  y2="90"
-                  stroke="#00b4d8"
-                  stroke-width="2"
-                  stroke-dasharray="5,5"
-                  opacity="0.5"
-                />
-                <!-- Hearts -->
-                <path
-                  d="M 420 160 C 420 150, 435 150, 435 160 C 435 150, 450 150, 450 160 C 450 175, 435 185, 435 195 C 435 185, 420 175, 420 160"
-                  fill="#ef4444"
-                  opacity="0.8"
-                />
-                <path
-                  d="M 60 100 C 60 92, 72 92, 72 100 C 72 92, 84 92, 84 100 C 84 112, 72 120, 72 128 C 72 120, 60 112, 60 100"
-                  fill="#22c55e"
-                  opacity="0.8"
-                />
-              </svg>
+              <img
+                src="images/hero-real.png"
+                alt="Pulsera Ofelia"
+                class="hero-image"
+                style="
+                  width: 100%;
+                  height: auto;
+                  border-radius: 24px;
+                  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+                "
+              />
 
-              <div class="floating-card floating-card-1">
-                <div class="floating-icon success">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                  >
-                    <path d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <div class="floating-text">
-                  <strong>Persona Encontrada</strong>
-                  <span>En menos de 20 minutos</span>
-                </div>
-              </div>
-
-              <div class="floating-card floating-card-2">
-                <div class="floating-icon primary">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path
-                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                    />
-                  </svg>
-                </div>
-                <div class="floating-text">
-                  <strong>98% Satisfacción</strong>
-                  <span>Miles de familias</span>
-                </div>
-              </div>
+              <!-- Floating cards removed as per user request -->
             </div>
           </div>
         </div>
@@ -340,7 +276,7 @@
         </p>
 
         <div class="features-grid">
-          <div class="feature-card">
+          <div class="feature-card reveal reveal-delay-1">
             <div class="feature-icon">
               <svg
                 width="36"
@@ -360,7 +296,7 @@
             </p>
           </div>
 
-          <div class="feature-card">
+          <div class="feature-card reveal reveal-delay-2">
             <div class="feature-icon">
               <svg
                 width="36"
@@ -382,7 +318,7 @@
             </p>
           </div>
 
-          <div class="feature-card">
+          <div class="feature-card reveal reveal-delay-3">
             <div class="feature-icon">
               <svg
                 width="36"
@@ -404,7 +340,7 @@
             </p>
           </div>
 
-          <div class="feature-card">
+          <div class="feature-card reveal reveal-delay-1">
             <div class="feature-icon">
               <svg
                 width="36"
@@ -424,7 +360,7 @@
             </p>
           </div>
 
-          <div class="feature-card">
+          <div class="feature-card reveal reveal-delay-2">
             <div class="feature-icon">
               <svg
                 width="36"
@@ -446,7 +382,7 @@
             </p>
           </div>
 
-          <div class="feature-card">
+          <div class="feature-card reveal reveal-delay-3">
             <div class="feature-icon">
               <svg
                 width="36"
@@ -482,7 +418,7 @@
         </p>
 
         <div class="steps-container">
-          <div class="step-card">
+          <div class="step-card reveal reveal-delay-1">
             <div class="step-number">1</div>
             <h3 class="step-title">Compra tu Producto</h3>
             <p class="step-description">
@@ -491,7 +427,7 @@
             </p>
           </div>
 
-          <div class="step-card">
+          <div class="step-card reveal reveal-delay-2">
             <div class="step-number">2</div>
             <h3 class="step-title">Registra Información</h3>
             <p class="step-description">
@@ -500,7 +436,7 @@
             </p>
           </div>
 
-          <div class="step-card">
+          <div class="step-card reveal reveal-delay-3">
             <div class="step-number">3</div>
             <h3 class="step-title">Úsalo Siempre</h3>
             <p class="step-description">
@@ -509,7 +445,7 @@
             </p>
           </div>
 
-          <div class="step-card">
+          <div class="step-card reveal reveal-delay-1">
             <div class="step-number">4</div>
             <h3 class="step-title">Conexión Inmediata</h3>
             <p class="step-description">
@@ -533,7 +469,7 @@
 
         <div class="products-grid">
           <!-- Product 1: Pulsera Alzheimer -->
-          <article class="product-card">
+          <article class="product-card reveal reveal-delay-1">
             <div class="product-image">
               <img
                 src="images/pulsera-alzheimer.png"
@@ -552,7 +488,7 @@
           </article>
 
           <!-- Product 3: Tag Mascotas -->
-          <article class="product-card">
+          <article class="product-card reveal reveal-delay-2">
             <div class="product-image">
               <img
                 src="images/tag-mascotas.png"
@@ -570,27 +506,33 @@
             </div>
           </article>
 
-          <!-- Product 4: Tag Objetos -->
-          <article class="product-card">
+          <!-- Product 4: Remeras Ofelia -->
+          <article class="product-card reveal reveal-delay-3">
             <div class="product-image">
               <img
-                src="images/tag-objetos.png"
-                alt="Tag QR para equipaje y objetos valiosos"
+                src="images/remera-qr-mujer.png"
+                alt="Remera con QR Ofelia para adultos mayores"
               />
             </div>
             <div class="product-content">
-              <div class="product-category">Para Objetos</div>
-              <h3 class="product-name">Tag Objetos</h3>
+              <div class="product-category">Indumentaria</div>
+              <h3 class="product-name">Remeras Ofelia</h3>
               <p class="product-description">
-                Etiqueta para valijas, mochilas y objetos de valor. Resistente y
-                duradero.
+                Remeras de algodón premium con código QR integrado. Comodidad y
+                seguridad para que tus seres queridos estén siempre
+                identificados.
               </p>
             </div>
           </article>
         </div>
 
-        <div class="section-footer" style="text-align: center; margin-top: 40px;">
-          <a href="productos.html" class="btn btn-primary btn-lg">Ver Catálogo Completo</a>
+        <div
+          class="section-footer"
+          style="text-align: center; margin-top: 40px"
+        >
+          <a href="productos.html" class="btn btn-primary btn-lg"
+            >Ver Catálogo Completo</a
+          >
         </div>
       </div>
     </section>
@@ -606,7 +548,7 @@
         </p>
 
         <div class="testimonials-grid">
-          <div class="testimonial-card">
+          <div class="testimonial-card reveal reveal-delay-1">
             <div class="testimonial-quote">"</div>
             <p class="testimonial-text">
               Mi madre tiene Alzheimer y se desorientaba constantemente. Gracias
@@ -632,7 +574,7 @@
             </div>
           </div>
 
-          <div class="testimonial-card">
+          <div class="testimonial-card reveal reveal-delay-2">
             <div class="testimonial-quote">"</div>
             <p class="testimonial-text">
               Perdí a mi perro Max en el parque y alguien lo encontró a las 3
@@ -658,7 +600,7 @@
             </div>
           </div>
 
-          <div class="testimonial-card">
+          <div class="testimonial-card reveal reveal-delay-3">
             <div class="testimonial-quote">"</div>
             <p class="testimonial-text">
               Viajé a Europa y perdí mi valija en el aeropuerto. El tag de
@@ -796,7 +738,6 @@
               <li><a href="#como-funciona">Cómo Funciona</a></li>
               <li><a href="#testimonios">Testimonios</a></li>
               <li><a href="faq.html">Preguntas Frecuentes</a></li>
-              <li><a href="contacto.html">Contacto</a></li>
             </ul>
           </div>
 
@@ -874,6 +815,7 @@
     </div>
 
     <!-- Scripts -->
+    <script src="script.js"></script>
     <script src="cart.js"></script>
   </body>
 </html>
