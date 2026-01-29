@@ -11,7 +11,38 @@ function getUrlParameter(name) {
 }
 
 // Index Page Logic
+// List of authorized IDs
+const VALID_IDS = [
+  "DD2349X66",
+  "OF6233Q81",
+  "XG2867G11",
+  "QZ3757G54",
+  "WR9864H20",
+  // Add more valid IDs here
+];
+
+// Index Page Logic
 function initIndex() {
+  // Check for ID in URL (QR Scan Scenario)
+  const urlId = getUrlParameter("id");
+  if (urlId) {
+    if (!VALID_IDS.includes(urlId)) {
+      alert("ID de pulsera no válido o no autorizado.");
+      // Optionally redirect to a generic error page or stay on login
+      return; 
+    }
+
+    const userData = localStorage.getItem(STORAGE_KEY_PREFIX + urlId);
+    if (userData) {
+      // User exists, go to profile
+      window.location.href = `profile.html?id=${urlId}`;
+    } else {
+      // New user, go to register
+      window.location.href = `register.html?id=${urlId}`;
+    }
+    return; // Stop further execution
+  }
+
   const scanBtn = document.getElementById("scanBtn");
   const idInput = document.getElementById("qrId");
 
@@ -20,6 +51,11 @@ function initIndex() {
       const id = idInput.value.trim();
       if (!id) {
         alert("Por favor ingrese un ID de pulsera");
+        return;
+      }
+
+      if (!VALID_IDS.includes(id)) {
+        alert("ID de pulsera no válido o no autorizado.");
         return;
       }
 
