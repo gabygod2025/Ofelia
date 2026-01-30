@@ -78,13 +78,64 @@ function initLogin() {
 // Register Page Logic
 function initRegister() {
   const form = document.getElementById("registerForm");
-  const id = getUrlParameter("id");
+  let id = getUrlParameter("id");
   const isEditMode = getUrlParameter("edit") === "true";
 
+  const step0 = document.getElementById("step0");
+  const step1 = document.getElementById("step1");
+  const step2 = document.getElementById("step2");
+  const step3 = document.getElementById("step3");
+
+  const checkIdBtn = document.getElementById("checkIdBtn");
+
   if (!id) {
-    alert("Error: No se detectó ID de pulsera");
-    window.location.href = "login.html";
-    return;
+    // No ID in URL -> Show Step 0 (Manual Entry)
+    if (step0) {
+        step0.style.display = "block";
+        step1.style.display = "none"; // Ensure step 1 is hidden
+    } else {
+        // Fallback if HTML not updated yet
+        alert("Error: No se detectó ID de pulsera");
+        window.location.href = "login.html";
+        return;
+    }
+  } else {
+    // ID present -> Normal flow
+    // If NOT editing, we are likely starting at Step 1 (which is default visible in HTML, but let's be explicit)
+    if (!isEditMode && step0) {
+        step0.style.display = "none";
+    }
+  }
+
+  // Handle Manual ID Validation
+  if (checkIdBtn) {
+      checkIdBtn.addEventListener("click", () => {
+          const manualIdInput = document.getElementById("manualId");
+          const val = manualIdInput.value.trim().toUpperCase();
+
+          if (!val) {
+              alert("Por favor ingrese el código de la pulsera.");
+              return;
+          }
+
+          if (typeof VALID_IDS !== 'undefined' && !VALID_IDS.includes(val)) {
+              alert("Código no válido. Verifique el código ingresado.");
+              return;
+          }
+
+          // Check if already registered
+          const existingUser = localStorage.getItem(STORAGE_KEY_PREFIX + val);
+          if (existingUser) {
+              alert("Esta pulsera ya está registrada. Por favor inicie sesión.");
+              window.location.href = "login.html";
+              return;
+          }
+
+          // Valid and available!
+          id = val; // Set the ID variable
+          step0.style.display = "none";
+          step1.style.display = "block";
+      });
   }
 
   // Image Preview
@@ -139,9 +190,8 @@ function initRegister() {
   });
 
   // Multi-step Logic
-  const step1 = document.getElementById("step1");
-  const step2 = document.getElementById("step2");
-  const step3 = document.getElementById("step3");
+  // Steps already selected above
+
 
   const nextBtn1 = document.getElementById("nextBtn1");
   const nextBtn2 = document.getElementById("nextBtn2");
@@ -251,6 +301,12 @@ function initRegister() {
 
       window.location.href = `profile.html?id=${id}`;
     });
+  }
+
+  // Ensure default visibility is correct for direct ID access
+  if (id && !isEditMode && step1) {
+      step1.style.display = "block";
+      if(step0) step0.style.display = "none";
   }
 }
 

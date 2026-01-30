@@ -1329,6 +1329,32 @@ body {
   .stat-item {
     text-align: center;
   }
+
+  /* Fix for hero vertical line on mobile */
+  .hero::before {
+    width: 150%;
+    height: 60%;
+    top: -10%;
+    right: -25%;
+    left: auto;
+    background: radial-gradient(
+      circle,
+      rgba(14, 165, 233, 0.2) 0%,
+      transparent 70%
+    );
+  }
+
+  .hero::after {
+    width: 150%;
+    height: 60%;
+    bottom: -10%;
+    left: -25%;
+    background: radial-gradient(
+      circle,
+      rgba(168, 85, 247, 0.15) 0%,
+      transparent 70%
+    );
+  }
 }
 
 @media (max-width: 480px) {

@@ -20,6 +20,31 @@
         <p>Complete los datos para configurar esta pulsera de seguridad.</p>
 
         <form id="registerForm">
+          <!-- Step 0: Manual ID Entry (Only if no ID in URL) -->
+          <div id="step0" style="display: none">
+            <div class="form-group">
+              <label for="manualId">Código de Pulsera</label>
+              <input
+                type="text"
+                id="manualId"
+                placeholder="Ingrese el código de su articulo"
+                style="text-transform: uppercase"
+              />
+              <p class="hint-text">
+                El código se encuentra al dorso de la pulsera.
+              </p>
+            </div>
+            <button type="button" id="checkIdBtn" class="btn btn-primary">
+              Validar Código
+            </button>
+            <a
+              href="login.html"
+              class="btn btn-secondary"
+              style="margin-top: 10px"
+              >Cancelar</a
+            >
+          </div>
+
           <!-- Step 1: Account Creation -->
           <div id="step1">
             <div class="form-group">
