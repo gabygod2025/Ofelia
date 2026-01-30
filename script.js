@@ -22,14 +22,17 @@ const VALID_IDS = [
 ];
 
 // Index Page Logic
-function initIndex() {
+const AUTH_STORAGE_KEY = "ofelia_auth_users";
+
+// Login Page Logic
+function initLogin() {
   // Check for ID in URL (QR Scan Scenario)
   const urlId = getUrlParameter("id");
   if (urlId) {
-    if (!VALID_IDS.includes(urlId)) {
-      alert("ID de pulsera no válido o no autorizado.");
-      // Optionally redirect to a generic error page or stay on login
-      return; 
+    if (typeof VALID_IDS !== 'undefined' && !VALID_IDS.includes(urlId)) {
+        // Only check if VALID_IDS is defined (it is defined above)
+        alert("ID de pulsera no válido o no autorizado.");
+        return;
     }
 
     const userData = localStorage.getItem(STORAGE_KEY_PREFIX + urlId);
@@ -43,30 +46,30 @@ function initIndex() {
     return; // Stop further execution
   }
 
-  const scanBtn = document.getElementById("scanBtn");
-  const idInput = document.getElementById("qrId");
+  const loginForm = document.getElementById("loginForm");
 
-  if (scanBtn) {
-    scanBtn.addEventListener("click", () => {
-      const id = idInput.value.trim();
-      if (!id) {
-        alert("Por favor ingrese un ID de pulsera");
+  if (loginForm) {
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const usernameInput = document.getElementById("username").value.trim();
+      const passwordInput = document.getElementById("password").value;
+
+      if (!usernameInput || !passwordInput) {
+        alert("Por favor complete todos los campos.");
         return;
       }
 
-      if (!VALID_IDS.includes(id)) {
-        alert("ID de pulsera no válido o no autorizado.");
-        return;
-      }
+      const authData = JSON.parse(
+        localStorage.getItem(AUTH_STORAGE_KEY) || "{}",
+      );
+      const user = authData[usernameInput];
 
-      const userData = localStorage.getItem(STORAGE_KEY_PREFIX + id);
-
-      if (userData) {
-        // User exists, go to profile
-        window.location.href = `profile.html?id=${id}`;
+      if (user && user.password === passwordInput) {
+        // Login success
+        sessionStorage.setItem("loggedUser", user.id); // Save Session
+        window.location.href = `profile.html?id=${user.id}`;
       } else {
-        // New user, go to register
-        window.location.href = `register.html?id=${id}`;
+        alert("Usuario o contraseña incorrectos.");
       }
     });
   }
@@ -76,6 +79,7 @@ function initIndex() {
 function initRegister() {
   const form = document.getElementById("registerForm");
   const id = getUrlParameter("id");
+  const isEditMode = getUrlParameter("edit") === "true";
 
   if (!id) {
     alert("Error: No se detectó ID de pulsera");
@@ -87,6 +91,38 @@ function initRegister() {
   const photoInput = document.getElementById("photo");
   const preview = document.getElementById("photoPreview");
   let photoBase64 = "";
+
+  // Pre-fill data if Editing
+  if (isEditMode) {
+      const userData = JSON.parse(localStorage.getItem(STORAGE_KEY_PREFIX + id) || "{}");
+      if (userData) {
+          document.getElementById("firstName").value = userData.firstName || "";
+          document.getElementById("lastName").value = userData.lastName || "";
+          document.getElementById("phone").value = userData.phone || "";
+          document.getElementById("contactName1").value = userData.contactName1 || "";
+          document.getElementById("contactName2").value = userData.contactName2 || "";
+          document.getElementById("phone2").value = userData.phone2 || "";
+          document.getElementById("email").value = userData.email || "";
+          document.getElementById("message").value = userData.message || "";
+          
+          if (userData.photo) {
+              photoBase64 = userData.photo;
+              preview.src = photoBase64;
+              preview.style.display = "block";
+              document.querySelector(".upload-text").style.display = "none";
+              // Remove required attribute from photo input since we have one
+              photoInput.removeAttribute("required");
+          }
+          
+          // Update UI for Edit Mode
+          const submitBtn = form.querySelector('button[type="submit"]');
+          if(submitBtn) submitBtn.textContent = "Guardar Cambios";
+          
+          // Hide Step 1 (Account) and Show Step 2 directly
+          document.getElementById("step1").style.display = "none";
+          document.getElementById("step2").style.display = "block";
+      }
+  }
 
   photoInput.addEventListener("change", function (e) {
     const file = e.target.files[0];
@@ -105,60 +141,85 @@ function initRegister() {
   // Multi-step Logic
   const step1 = document.getElementById("step1");
   const step2 = document.getElementById("step2");
-  const nextBtn = document.getElementById("nextBtn");
-  const backBtn = document.getElementById("backBtn");
+  const step3 = document.getElementById("step3");
 
-  if (nextBtn && backBtn) {
-    nextBtn.addEventListener("click", () => {
-      // Validate Step 1
+  const nextBtn1 = document.getElementById("nextBtn1");
+  const nextBtn2 = document.getElementById("nextBtn2");
+  const backBtn1 = document.getElementById("backBtn1");
+  const backBtn2 = document.getElementById("backBtn2");
+
+  if (nextBtn1) {
+    nextBtn1.addEventListener("click", () => {
+        // Skip validation if editing (though step 1 is hidden)
+        
+        const username = document.getElementById("regUsername").value.trim();
+        const password = document.getElementById("regPassword").value;
+
+        if (!username || !password) {
+            alert("Por favor complete usuario y contraseña.");
+            return;
+        }
+
+        // Check if username taken
+        const authData = JSON.parse(localStorage.getItem(AUTH_STORAGE_KEY) || "{}");
+        if (authData[username]) {
+            alert("El nombre de usuario ya existe. Elija otro.");
+            return;
+        }
+
+        step1.style.display = "none";
+        step2.style.display = "block";
+    });
+  }
+
+  if (nextBtn2) {
+    nextBtn2.addEventListener("click", () => {
+      // Validate Step 2 (Personal Info)
       const firstName = document.getElementById("firstName").value.trim();
       const lastName = document.getElementById("lastName").value.trim();
       const phone = document.getElementById("phone").value.trim();
       const contactName1 = document.getElementById("contactName1").value.trim();
       const photoFile = document.getElementById("photo").files[0];
 
-      // Check all required fields
-      if (!photoFile) {
-        alert("Por favor suba una foto de perfil.");
-        return;
-      }
+      // Validate photo only if not editing or if user removed it (though we kept base64)
+      if (!isEditMode && !photoFile) { alert("Por favor suba una foto de perfil."); return; }
+      if (!photoBase64 && !photoFile) { alert("Por favor suba una foto de perfil."); return; }
+      
+      if (!firstName) { alert("Por favor ingrese el nombre."); return; }
+      if (!lastName) { alert("Por favor ingrese el apellido."); return; }
+      if (!phone) { alert("Por favor ingrese el teléfono de contacto principal."); return; }
+      if (!contactName1) { alert("Por favor ingrese el nombre del contacto principal."); return; }
 
-      if (!firstName) {
-        alert("Por favor ingrese el nombre.");
-        return;
-      }
-
-      if (!lastName) {
-        alert("Por favor ingrese el apellido.");
-        return;
-      }
-
-      if (!phone) {
-        alert("Por favor ingrese el teléfono de contacto principal.");
-        return;
-      }
-
-      if (!contactName1) {
-        alert("Por favor ingrese el nombre del contacto principal.");
-        return;
-      }
-
-      // All validations passed, move to step 2
-      step1.style.display = "none";
-      step2.style.display = "block";
-    });
-
-    backBtn.addEventListener("click", () => {
       step2.style.display = "none";
-      step1.style.display = "block";
+      step3.style.display = "block";
     });
+  }
+
+  if (backBtn1) {
+      backBtn1.addEventListener("click", () => {
+          if (isEditMode) {
+              // If editing, maybe redirect back to profile? Or just do nothing?
+              // Let's redirect to profile for safety
+              window.location.href = `profile.html?id=${id}`;
+          } else {
+              step2.style.display = "none";
+              step1.style.display = "block";
+          }
+      });
+  }
+
+  if (backBtn2) {
+      backBtn2.addEventListener("click", () => {
+          step3.style.display = "none";
+          step2.style.display = "block";
+      });
   }
 
   if (form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      const userData = {
+      let userData = {
         firstName: document.getElementById("firstName").value,
         lastName: document.getElementById("lastName").value,
         contactName1: document.getElementById("contactName1").value,
@@ -170,9 +231,24 @@ function initRegister() {
         photo: photoBase64 || "https://via.placeholder.com/150?text=No+Photo", // Default if none
       };
 
+      // Save Profile Data
       localStorage.setItem(STORAGE_KEY_PREFIX + id, JSON.stringify(userData));
 
-      alert("¡Pulsera activada con éxito!");
+      // Save Auth Data ONLY if not editing (creating new account)
+      if (!isEditMode) {
+          const username = document.getElementById("regUsername").value.trim();
+          const password = document.getElementById("regPassword").value;
+          const authData = JSON.parse(localStorage.getItem(AUTH_STORAGE_KEY) || "{}");
+          authData[username] = {
+              password: password,
+              id: id
+          };
+          localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(authData));
+          alert("¡Cuenta creada y pulsera activada con éxito!");
+      } else {
+          alert("¡Cambios guardados correctamente!");
+      }
+
       window.location.href = `profile.html?id=${id}`;
     });
   }
@@ -199,6 +275,21 @@ function initProfile() {
   document.getElementById("profileName").textContent =
     `${user.firstName} ${user.lastName}`;
   document.getElementById("profilePhoto").src = user.photo;
+  
+  // Show Edit Button if owner
+  const loggedUser = sessionStorage.getItem("loggedUser");
+  if (loggedUser === id) {
+      const editBtn = document.createElement("a");
+      editBtn.href = `register.html?id=${id}&edit=true`;
+      editBtn.className = "btn btn-outline";
+      editBtn.style.textAlign = "center";
+      editBtn.style.display = "block";
+      editBtn.style.marginTop = "10px";
+      editBtn.innerText = "✏️ Editar Perfil";
+      
+      // Append after profile photo or wherever appropriate
+      document.querySelector(".profile-img-container").after(editBtn);
+  }
 
   // Emergency Message
   const msgEl = document.getElementById("profileMessage");
@@ -274,7 +365,7 @@ function initProfile() {
 document.addEventListener("DOMContentLoaded", () => {
   const path = window.location.pathname;
   if (path.includes("login.html") || path.endsWith("/")) {
-    initIndex();
+    initLogin();
   } else if (path.includes("register.html")) {
     initRegister();
   } else if (path.includes("profile.html")) {
